@@ -16,18 +16,22 @@ const Header = () => {
     let index = 0;
 
     const interval = setInterval(() => {
-      setCurrentText((prevText) => prevText + sentence[index]);
-      index += 1;
+      setCurrentText((prevText) => {
+        const newText = prevText + sentence[index];
+        index += 1;
 
-      if (index === sentence.length) {
-        clearInterval(interval);
-        setTimeout(() => {
-          setCurrentText("");
-          setCurrentSentenceIndex(
-            (prevIndex) => (prevIndex + 1) % sentences.length
-          );
-        }, 2000); // Adjust the delay between sentences
-      }
+        if (index === sentence.length) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setCurrentSentenceIndex(
+              (prevIndex) => (prevIndex + 1) % sentences.length
+            );
+            setCurrentText("");
+          }, 2000); // Adjust the delay between sentences
+        }
+
+        return newText;
+      });
     }, 200); // Adjust the typing speed
 
     return () => clearInterval(interval);

@@ -1,20 +1,14 @@
 import React from "react";
-import { FaBars } from "react-icons/fa";
+// import { FaBars } from "react-icons/fa";
 
 import {
   AiOutlineHome,
   AiOutlineProject,
   AiOutlineInfoCircle,
 } from "react-icons/ai";
-import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <div>
       <div className=" bg-black ">
@@ -25,21 +19,21 @@ const Navbar = () => {
             <ul className=" flex  gap-9  text-white text-lg mr-9  ">
               <li className="cursor-pointer  flex lg:justify-center items-center gap-1 text-white hover:text-gray-300 transition duration-300 border-b-4 border-transparent hover:border-purple-400">
                 <AiOutlineHome />
-                <a href="/" className="styling">
+                <Link to="/" className="styling">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="cursor-pointer  flex lg:justify-center items-center gap-1 text-white hover:text-gray-300 transition duration-300 border-b-4 border-transparent hover:border-purple-400">
                 <AiOutlineInfoCircle />
-                <a href="about" className="styling">
+                <Link to="/about" className="styling">
                   About
-                </a>
+                </Link>
               </li>
               <li className="cursor-pointer flex lg:justify-center items-center gap-1 text-white hover:text-gray-300 transition duration-300 border-b-4 border-transparent hover:border-purple-400">
                 <AiOutlineProject />
-                <a href="project" className="styling">
+                <Link to="/project" className="styling">
                   Projects
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
